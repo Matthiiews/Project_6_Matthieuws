@@ -1,49 +1,60 @@
 <!DOCTYPE html>
 <html lang="en">
+    
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>JustStreamIt - Interesting movies in real time</title>
 
-    <head>    
-        <meta charset="utf-8" >  
-        <meta content="width=device-width, initial-scale=1.0" name="viewport">
-        <head>JustStreamIt</head>
+        <!-- Favicon -->
         <link href="JustStreamIt/images/favicon.png" rel="icon"/>
-        <link href="CSS/style.css" rel="stylesheet"/>
+
+        <!-- Fonts -->
         <link rel ="preconnect" href ="https://fonts.googleapis.com">
         <link crossorigin href="https://fonts.gstatic.com" rel="preconnect">
-        <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.3/font/bootstrap-icons.css" rel="stylesheet">
-        <link href="https://fonts.googleapis.com/css2?family=Manrope&family=Montserrat&display=swap" rel="stylesheet">
-    </head>
 
+        <!-- Stylesheets -->
+        <link rel="stylesheet" href="JustStreamIt/styles.css">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.3/font/bootstrap-icons.css" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
+    </head>
+    
     <body>
+        <!-- Header -->
         <header class="header">
             <div class="header-logo">
-                <a  href="index.html"><img alt="JustStreamIt logo" src="JustStreamIt/images/logo_small.png"></a>
+                <a href="index.html"><img alt="JustStreamIt logo" src="JustStreamIt/images/logo_small.png"></a> 
             </div>
             <nav class="header_menu">
                 <ul class="nav_bar">
-                    <li class="nav"><a href="index.html">Accueil</a></li>
-                    <li class="nav"><a href="#categories">Categories</a></li>
+                    <li class="nav"><a href="indexs.html">Accueil</a></li>
+                    <li class="nav"><a href="#categories">Catégories</a></li>
                 </ul>
             </nav>
         </header>
 
+        <!-- Section: Best movie -->
         <section class="best" id="best-movie">
             <div class="best-cover" id="top0">
-                <img src="JustStreamIt/images/test.jpg" alt="movie cover">
+                <img alt="movie cover" src="JustStreamIt/images/test.jpg">
             </div>
             <div class="best-movie">
                 <h1 class="best-movie-title" id="top-title">""</h1>
             </div>
-            <div class="buttoms">
-                <buttom class="button"><i class="bi bi-play-fill"></i>Play</buttom>
-                <button aria-label="open modal" class="buttom">More Info</button>
+            <div class="buttons">
+                <button class="button"><i class="bi bi-play-fill"></i>Play</button>
+                <button aria-label="open modal" class="button">More Info</button>
             </div>
             <div class="best-movie-description">
                 <p class="best-desc" id="top-desc">""</p>
             </div>
         </section>
 
+        <!-- Carousels -->
         <div class="carousels"></div>
-        <div class="modal" id="modal">
+
+        <!-- Modal -->
+        <div id="modal" class="modal">
             <div class="modal-content">
                 <span aria-label="close modal" class="close">&times;</span>
                 <div class="modal-cover-image">
@@ -55,9 +66,9 @@
                         <button class="modal-button"><i class="bi bi-play-fill">Play</i></button>
                     </header>
                     <div class="metadata">
-                        <p id="modal-year">""</p> • <p id="modal-rating">""</p> • <p id="modal-duration">""</p><br>
+                        <p id="modal-year">""</p> •  <p id="modal-rating">""</p>  •  <p id="modal-duration"></p><br>
                         <p class="genres" id="modal-genres">""</p><br>
-                        <strong>IMDb: </strong>
+                        <strong>Imdb: </strong>
                         <p id="modal-imdb">""</p><br><br>
                     </div>
                     <div>
@@ -68,14 +79,20 @@
                         <strong>Countries: </strong>
                         <p id="modal-country">""</p><br>
                         <strong>Box office: </strong>
-                        <p id="modal-box-office">""</p><br><br>
-                        <strong>Movie summary: </strong><br>
+                        <p id="modal-box-office">""</p><br>
+                        <strong>Movie summary: </strong>
                         <p class="movie" id="modal-desc">""</p>
                     </div>
                 </div>
             </div>
         </div>
-        <script src="JustStreamIt/main.js"></script>
+        
+        <!-- Footer -->
+        <footer>
+            <p>© 2023 JustStreamIt - all rights reserved.</p>
+        </footer>
 
+        <!-- JavaScript -->
+        <script src="JustStreamIt/script.js"></script>
     </body>
 </html>

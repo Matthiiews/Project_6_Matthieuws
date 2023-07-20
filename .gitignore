@@ -1,0 +1,7 @@
+# virtual envs
+.env
+.env.test
+.custom-env
+
+.idea/
+/ocmovies_api/
