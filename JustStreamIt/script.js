@@ -1,110 +1,164 @@
-const mainUrl = "http://localhost:8000/api/v1/titles/";
+const mainUrl = "http://localhost:8000/api/v1/titles/"
 
-// Function to perform a Fetch query
-async function fetchData(url) {
-    const response = await fetch(url);
-    if (!response.ok) {
-        throw new Error("Error while recovering data.");
-    }
-    return await response.json();
-}
 
-// Best Movie
-async function fetchBestMovie() {
-    try {
-        const data = await fetchData(mainUrl + "?sort_bye=-imdb_score");
-        const bestMovie = data.results[0];
+// Carrousel controls
 
-        const bestTitle = document.getElementById('top-title');
-        bestTitle.innerHTML = bestMovie.title;
+function moveCarrouselLeft(category) {
 
-        const bestImg = document.querySelector('.best-cover img');
-        bestImg.src = bestMovie.image_url;
-
-        const bestDesc = document.querySelector('.best-desc');
-        const movieData = await fetchData(bestMovie.url);
-        bestDesc.innerHTML = movieData.description;
-
-        const bestButton = document.getElementsByClassName('button')[1];
-        bestButton.setAttribute("onclick", `openModal("$(bestMovie.id)")`);
-    }   catch (error) {
-        console.error("Error while recovering best movie:", error);
-    }
-}  
-  
-// Modal control and fetch data
-function openModal(id) {
-    const modal = document.getElementById("modal");
-    const span = document.getElementsByClassName("close")[0];
-    fetchModalData(id);
+  let carrouselContent = document.querySelector("#" + category + "-movies");
+  let carrouselLeftBtn = document.querySelector("#" + category + "-left");
+  let carrouselRightBtn = document.querySelector("#" + category + "-right");
     
-    modal.style.display = "block";
-
-    span.onclick = function () {
-        modal.style.display = "none";
-    }
-
-    window.onclick = function (event) {
-        if (event.target === modal) {
-            modal.style.display = "none";
-        }
-    }
+  carrouselContent.style.left = "-680px";
+  carrouselRightBtn.classList.remove("show");
+  carrouselLeftBtn.classList.add("show");
 }
 
-async function fetchModalData(id) {
-    try {
-        const data = await fetchData(mainUrl + id);
+function moveCarrouselRight(category) {
 
-        document.getElementById('modal-cover').src = data.image_url;
-        document.getElementById('modal-title').innerHTML = data.title;
-        document.getElementById('modal-year').innerHTML = data.year;
-        document.getElementById('modal-duration').innerHTML = `${data.duration} min`;
-        document.getElementById('modal-genres').innerHTML = data.genres.join(', ');
-        document.getElementById('modal-imdb').innerHTML = `${data.imdb_score} / 10`;
-        document.getElementById('modal-directors').innerHTML = data.directors.join(', ');
-        document.getElementById('modal-cast').innerHTML = data.actors.join(', ') + "...";
-        document.getElementById('modal-country').innerHTML = data.countries;
+  let carrouselContent = document.querySelector("#" + category + "-movies");
+  let carrouselLeftBtn = document.querySelector("#" + category + "-left");
+  let carrouselRightBtn = document.querySelector("#" + category + "-right");
 
-        if (typeof data.rated === 'string') {
-            document.getElementById('modal-rating').innerHTML = data.rated;
-        } else {
-            document.getElementById('modal-rating').innerHTML = data.rated + "+"; // add "+" if age rating is a number
-        }
+  carrouselContent.style.left = "0px";
+  carrouselRightBtn.classList.add("show");
+  carrouselLeftBtn.classList.remove("show");
+}
 
-        const modalBoxOffice = document.getElementById('modal-box-office');
-        if (data["worldwide_gross_income"] == null) {
-            modalBoxOffice.innerHTML = "N/A"; // Placeholder for unspecified bax-office
-        } else {
-            modalBoxOffice.innerHTML = `${data.worldwide_gross_income} + " " + ${data.budget_currency}`;
-        }
+
+
+// Fetch data
+
+function fetchBestMovie() {
+
+	let bestTitle = document.getElementById('top-title');
+	let bestImg = document.getElementsByClassName('best-cover')[0].getElementsByTagName("img")[0];
+
+	fetch(mainUrl + "?sort_by=-imdb_score")
+	.then(response => response.json())
+	.then(data => {
+    bestTitle.innerHTML = data["results"][0]["title"];
+		bestImg.src = data["results"][0]["image_url"];
+    bestImg.id = data["results"][0]["id"];
+
+    let url = data["results"][0]["url"];
+    fetchBestDescription(url)
+	})
+}
+
+function fetchBestDescription(url) {
+
+  let bestDesc = document.getElementsByClassName('best-desc')[0];
+
+  fetch(url)
+	.then(response => response.json())
+	.then(data => {
+    bestDesc.innerHTML = data["description"];
+	})
+}
+
+function fetchCategories(category) {
+
+  let urlPage1 = mainUrl + "?sort_by=-imdb_score&genre=" + category;
+  let urlPage2 = mainUrl + "?sort_by=-imdb_score&genre=" + category + "&page=2";
+
+  fetch(urlPage1)
+  .then(response => response.json())
+  .then(data => {
+    let dataPage1 = data["results"];
+
+    fetch(urlPage2)
+    .then(response => response.json())
+    .then(data => {
+      let dataPage2 = data["results"];
+      let dataAll = dataPage1.concat(dataPage2);
+
+      if (category == '')
+        dataAll.shift();   // for best-rated category, skip first movie
+
+      for (i=0; i<7; i++) {
+        let movieCover = dataAll[i]["image_url"];
+        let movieTitle = dataAll[i]["title"];
+        let movieId = dataAll[i]["id"];
+        let currentMovieTitle = document.getElementById(category + (i+1).toString()).getElementsByTagName("p")[0];
+        let currentMovieCover = document.getElementById(category + (i+1).toString()).getElementsByTagName("img")[0];
             
-        const regExp = /[a-zA-Z]/g;
-        if (regExp.test(data.long_description)) {
-            document.getElementById('modal-desc').innerHTML = data.long_description;
-        } else {
-            document.getElementById('modal-desc').innerHTML = "N/A"; // Placeholder for missing description
-        }
-    } catch (error) {
-        console.error("Error while retrieving modal data:", error);
-    }
+        currentMovieCover.src = movieCover;
+        currentMovieCover.id = movieId;
+        currentMovieTitle.innerHTML = movieTitle;
+      }
+    })
+  })
 }
 
-// Categories
-async function fetchCategories(name, skip, total = 7) {
-    try {
-        const data = await fetchData(mainUrl + "?sort_by=-imdb_score&genre=" + name);
 
-        const moviesData = data.results.slice(skip, skip + total);
-        if (moviesData.length < total && data.next) {
-            const nextData = await fetchData(data.next);
-            moviesData.push(...nextData.results.slice(0, total - moviesData.length));
-        }
 
-        return moviesData;
-    } catch (error) {
-        console.error("Error while retrieving categories:", error);
-        return[];
-    }
+// Modal control and fetch data
+
+function openModal(category, num) {
+  
+  let modal = document.getElementById("modal");
+  let span = document.getElementsByClassName("close")[0];
+
+  let modalId = document.getElementById(category + num.toString()).getElementsByTagName("img")[0].id;
+
+  fetchModalData(modalId)
+
+  modal.style.display = "block";
+
+  span.addEventListener = function() {
+    modal.style.display = "none";
+  }
+
+  window.addEventListener = function(event) {
+    if (event.target == modal)
+      modal.style.display = "none";
+  }
 }
 
-// Carousel controls
+function fetchModalData(id) {
+
+	fetch(mainUrl + id)
+	.then(response => response.json())
+	.then(data => {
+
+    document.getElementById('modal-cover').src = data["image_url"];
+		document.getElementById('modal-title').innerHTML = data["title"];
+
+    document.getElementById('modal-year').innerHTML = data["year"];
+    document.getElementById('modal-duration').innerHTML = data["duration"] + " min";
+    document.getElementById('modal-genres').innerHTML = data["genres"];
+    document.getElementById('modal-imdb').innerHTML = data["imdb_score"] + " / 10";
+
+    document.getElementById('modal-directors').innerHTML = data["directors"];
+    document.getElementById('modal-cast').innerHTML = data["actors"] + "...";
+    document.getElementById('modal-country').innerHTML = data["countries"];
+
+
+    if (typeof data["rated"] === 'string' || data["rated"] instanceof String)
+      document.getElementById('modal-rating').innerHTML = data["rated"];
+    else
+      document.getElementById('modal-rating').innerHTML = data["rated"] + "+";  // add "+" if age rating is a number
+
+    let modalBoxOffice = document.getElementById('modal-box-office');
+    if (data["worldwide_gross_income"] == null)
+      modalBoxOffice.innerHTML = "N/A";  // placeholder for unspecified box-office   
+    else 
+      modalBoxOffice.innerHTML = data["worldwide_gross_income"] + " " + data["budget_currency"];
+
+    let regExp = /[a-zA-Z]/g;
+    if (regExp.test(data["long_description"]))
+      document.getElementById('modal-desc').innerHTML = data["long_description"]; 
+    else
+      document.getElementById('modal-desc').innerHTML = "N/A";  // placeholder for missing description
+    
+	})
+}
+
+
+fetchCategories('')
+fetchCategories('horror')
+fetchCategories('history')
+fetchCategories('romance')
+
+fetchBestMovie()

@@ -1,98 +1,387 @@
 <!DOCTYPE html>
-<html lang="en">
-    
+<html lang="fr">
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>JustStreamIt - Interesting movies in real time</title>
 
-        <!-- Favicon -->
-        <link href="JustStreamIt/images/favicon.png" rel="icon"/>
-
         <!-- Fonts -->
-        <link rel ="preconnect" href ="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
         <link crossorigin href="https://fonts.gstatic.com" rel="preconnect">
 
         <!-- Stylesheets -->
-        <link rel="stylesheet" href="JustStreamIt/styles.css">
-        <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.3/font/bootstrap-icons.css" rel="stylesheet">
+        <link rel="stylesheet" href="JustStreamIt/styles.css" />
         <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.3/font/bootstrap-icons.css" rel="stylesheet">
+        
     </head>
-    
+
     <body>
         <!-- Header -->
         <header class="header">
-            <div class="header-logo">
-                <a href="index.html"><img alt="JustStreamIt logo" src="JustStreamIt/images/logo_small.png"></a> 
+            <div class="header_logo">
+                <a title="JustStreamIt" href="index.html"><img src="JustStreamIt/images/logo_small.png" 
+                    alt="JustStreamIt logo" height="80" width="80"></a>
+            </div>
+            <div class="header__slogan">
+                <p>Don't know what to watch for a good night out?</p>
+                <p>Then JustStreamIt</p>
+            <nav class="header__nav">
             </div>
             <nav class="header_menu">
                 <ul class="nav_bar">
-                    <li class="nav"><a href="indexs.html">Accueil</a></li>
-                    <li class="nav"><a href="#categories">Catégories</a></li>
+                    <li class="nav"><a title="JustStreamIt" href="index.html">Accueil</a></li>
+                    <li class="nav"><a title="JustStreamIt" href="#categories">Categories</a></li>
                 </ul>
             </nav>
         </header>
 
-        <!-- Section: Best movie -->
+        <!-- Section: best movie -->
         <section class="best" id="best-movie">
             <div class="best-cover" id="top0">
-                <img alt="movie cover" src="JustStreamIt/images/test.jpg">
+                <img src="JustStreamIt/images/test.jpg" alt="movie cover" height="380" width="380">
             </div>
-            <div class="best-movie">
-                <h1 class="best-movie-title" id="top-title">""</h1>
+            <div class="best_movie">
+                <h1 class="best_movie_title" id="top-title">""</h1>
             </div>
             <div class="buttons">
-                <button class="button"><i class="bi bi-play-fill"></i>Play</button>
-                <button aria-label="open modal" class="button">More Info</button>
+                <button>
+                    <i class="fa-solid fa-circle-play"></i>
+                    <p>Play</p>
+                </button> 
+                <button>
+                    <i class="fa-solid fa-circle-info"></i>
+                    <span class="boutton_modal_open">More info</p>
+                </button>
             </div>
-            <div class="best-movie-description">
+            <div class="best_movie_description">
                 <p class="best-desc" id="top-desc">""</p>
             </div>
         </section>
 
-        <!-- Carousels -->
-        <div class="carousels"></div>
+        <!-- Section: Category best rated movies -->
+        <section class="categories" id="categories">
+            <div class="container">
+                <h2>Best-rated movies</h2>
+                <div class="carrousel--container">
+                    <div class="carrousel--content" id="best-movies">
+                        <div class="box" id="1">
+                            <img src="JustStreamIt/images/test.jpg" alt="movie cover" height="380" width="380">
+                            <div class= "overlay">
+                                <p>Movie 1</p>
+                                <button class= "overlay_button">► Play</button>
+                                <button class= "overlay_button">More...</button>
+                            </div>
+                        </div>
+                        <div class="box" id="2">
+                            <img src="JustStreamIt/images/test.jpg" alt="movie cover" height="380" width="380">
+                            <div class= "overlay">
+                                <p>Movie 2</p>
+                                <button class= "overlay_button">► Play</button>
+                                <button class= "overlay_button">More...</button>
+                            </div>
+                        </div>
+                        <div class="box" id="3">
+                            <img src="JustStreamIt/images/test.jpg" alt="movie cover" height="380" width="380">
+                            <div class= "overlay">
+                                <p>Movie 3</p>
+                                <button class= "overlay_button">► Play</button>
+                                <button class= "overlay_button">More...</button>
+                            </div>
+                        </div>
+                        <div class="box" id="4">
+                            <img src="JustStreamIt/images/test.jpg" alt="movie cover" height="380" width="380">
+                            <div class= "overlay">
+                                <p>Movie 4</p>
+                                <button class= "overlay_button">► Play</button>
+                                <button class= "overlay_button">More...</button>
+                            </div>    
+                        </div>
+                        <div class="box" id="5">
+                            <img src="JustStreamIt/images/test.jpg" alt="movie cover" height="380" width="380">
+                            <div class= "overlay">
+                                <p>Movie 5</p>
+                                <button class= "overlay_button">► Play</button>
+                                <button class= "overlay_button">More...</button>
+                            </div>
+                        </div>
+                        <div class="box" id="6">
+                            <img src="JustStreamIt/images/test.jpg" alt="movie cover" height="380" width="380">
+                            <div class= "overlay">
+                                <p>Movie 6</p>
+                                <button class= "overlay_button">► Play</button>
+                                <button class= "overlay_button">More...</button>
+                            </div>
+                        </div>
+                        <div class="box" id="7">
+                            <img src="JustStreamIt/images/test.jpg" alt="movie cover" height="380" width="380">
+                            <div class= "overlay">
+                                <p>Movie 7</p>
+                                <button class= "overlay_button">► Play</button>
+                                <button class= "overlay_button">More...</button>
+                            </div>
+                        </div> 
+                    </div>
+                    <div class="controls">
+                        <button class="btn left" id="best-left">❰</button>
+                        <button class="btn right show" id="best-right">❱</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section: First category -->
+        <section class="categories">
+            <div class="container">
+                <h2>Horror movies</h2>
+                <div class="carrousel--container">
+                    <div class="carrousel--content" id="horror-movies">
+                        <div class="box" id="horror1">
+                            <img src="JustStreamIt/images/test.jpg" alt="movie cover" height="380" width="380">
+                            <div class= "overlay">
+                                <p>Movie 1</p>
+                                <button class= "overlay_button">► Play</button>
+                                <button class= "overlay_button">More...</button>
+                            </div>
+                        </div>
+                        <div class="box" id="horror2">
+                            <img src="JustStreamIt/images/test.jpg" alt="movie cover" height="380" width="380">
+                            <div class= "overlay">
+                                <p>Movie 2</p>
+                                <button class= "overlay_button">► Play</button>
+                                <button class= "overlay_button">More...</button>
+                            </div>
+                        </div>
+                        <div class="box" id="horror3">
+                            <img src="JustStreamIt/images/test.jpg" alt="movie cover" height="380" width="380">
+                            <div class= "overlay">
+                                <p>Movie 3</p>
+                                <button class= "overlay_button">► Play</button>
+                                <button class= "overlay_button">More...</button>
+                            </div>
+                        </div>
+                        <div class="box" id="horror4">
+                            <img src="JustStreamIt/images/test.jpg" alt="movie cover" height="380" width="380">
+                            <div class= "overlay">
+                                <p>Movie 4</p>
+                                <button class= "overlay_button">► Play</button>
+                                <button class= "overlay_button">More...</button>
+                            </div>           
+                        </div>
+                        <div class="box" id="horror5">
+                            <img src="JustStreamIt/images/test.jpg" alt="movie cover" height="380" width="380">
+                            <div class= "overlay">
+                                <p>Movie 5</p>
+                                <button class= "overlay_button">► Play</button>
+                                <button class= "overlay_button">More...</button>
+                            </div>
+                        </div>
+                        <div class="box" id="horror6">
+                            <img src="JustStreamIt/images/test.jpg" alt="movie cover" height="380" width="380">
+                            <div class= "overlay">
+                                <p>Movie 6</p>
+                                <button class= "overlay_button">► Play</button>
+                                <button class= "overlay_button">More...</button>
+                            </div>
+                        </div>
+                        <div class="box" id="horror7">
+                            <img src="JustStreamIt/images/test.jpg" alt="movie cover" height="380" width="380">
+                            <div class= "overlay">
+                                <p>Movie 7</p>
+                                <button class= "overlay_button">► Play</button>
+                                <button class= "overlay_button">More...</button>
+                            </div>
+                        </div> 
+                    </div>
+                    <div class="controls">
+                        <button class="btn left" id="horror-left">❰</button>
+                        <button class="btn right show" id="horror-right">❱</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section: Second category -->
+        <section class="categories">
+            <div class="container">
+                <h2>History movies</h2>
+                <div class="carrousel--container">
+                    <div class="carrousel--content" id="history-movies">
+                        <div class="box" id="history1">
+                            <img src="JustStreamIt/images/test.jpg" alt="movie cover" height="380" width="380">
+                            <div class= "overlay">
+                                <p>Movie 1</p>
+                                <button class= "overlay_button">► Play</button>
+                                <button class= "overlay_button">More...</button>
+                            </div>
+                        </div>
+                        <div class="box" id="history2">
+                            <img src="JustStreamIt/images/test.jpg" alt="movie cover" height="380" width="380">
+                            <div class= "overlay">
+                                <p>Movie 2</p>
+                                <button class= "overlay_button">► Play</button>
+                                <button class= "overlay_button">More...</button>
+                            </div>
+                        </div>
+                        <div class="box" id="history3">
+                            <img src="JustStreamIt/images/test.jpg" alt="movie cover" height="380"  width="380">
+                            <div class= "overlay">
+                                <p>Movie 3</p>
+                                <button class= "overlay_button">► Play</button>
+                                <button class= "overlay_button">More...</button>
+                            </div>
+                        </div>
+                        <div class="box" id="history4">
+                            <img src="JustStreamIt/images/test.jpg" alt="movie cover" height="380" width="380">
+                            <div class= "overlay">
+                                <p>Movie 4</p>
+                                <button class= "overlay_button">► Play</button>
+                                <button class= "overlay_button">More...</button>
+                            </div>        
+                        </div>
+                        <div class="box" id="history5">
+                            <img src="JustStreamIt/images/test.jpg" alt="movie cover" height="380" width="380">
+                            <div class= "overlay">
+                                <p>Movie 5</p>
+                                <button class= "overlay_button">► Play</button>
+                                <button class= "overlay_button">More...</button>
+                            </div>
+                        </div>
+                        <div class="box" id="history6">
+                            <img src="JustStreamIt/images/test.jpg" alt="movie cover" height="380" width="380">
+                            <div class= "overlay">
+                                <p>Movie 6</p>
+                                <button class= "overlay_button">► Play</button>
+                                <button class= "overlay_button">More...</button>
+                            </div>
+                        </div>
+                        <div class="box" id="history7">
+                            <img src="JustStreamIt/images/test.jpg" alt="movie cover" height="380" width="380">
+                            <div class= "overlay">
+                                <p>Movie 7</p>
+                                <button class= "overlay_button">► Play</button>
+                                <button class= "overlay_button">More...</button>
+                            </div>
+                        </div> 
+                    </div>
+                    <div class="controls">
+                        <button class="btn left" id="history-left">❰</button>
+                        <button class="btn right show" id="history-right">❱</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section third category -->
+        <section class="categories">
+            <div class="container">
+                <h2>Romance movies</h2>
+                <div class="carrousel--container">
+                    <div class="carrousel--content" id="romance-movies">
+                        <div class="box" id="romance1">
+                            <img src="JustStreamIt/images/test.jpg" alt="movie cover" height="380" width="380">
+                            <div class= "overlay">
+                                <p>Movie 1</p>
+                                <button class= "overlay_button">► Play</button>
+                                <button class= "overlay_button">More...</button>
+                            </div>
+                        </div>
+                        <div class="box" id="romance2">
+                            <img src="JustStreamIt/images/test.jpg" alt="movie cover" height="380" width="380">
+                            <div class= "overlay">
+                                <p>Movie 2</p>
+                                <button class= "overlay_button">► Play</button>
+                                <button class= "overlay_button">More...</button>
+                            </div>
+                        </div>
+                        <div class="box" id="romance3">
+                            <img src="JustStreamIt/images/test.jpg" alt="movie cover" height="380" width="380">
+                            <div class= "overlay">
+                                <p>Movie 3</p>
+                                <button class= "overlay_button">► Play</button>
+                                <button class= "overlay_button">More...</button>
+                            </div>
+                        </div>
+                        <div class="box" id="romance4">
+                            <img src="JustStreamIt/images/test.jpg" alt="movie cover" height="380" width="380">
+                            <div class= "overlay">
+                                <p>Movie 4</p>
+                                <button class= "overlay_button">► Play</button>
+                                <button class= "overlay_button">More...</button>
+                            </div>   
+                        </div>
+                        <div class="box" id="romance5">
+                            <img src="JustStreamIt/images/test.jpg" alt="movie cover" height="380" width="380">
+                            <div class= "overlay">
+                                <p>Movie 5</p>
+                                <button class= "overlay_button">► Play</button>
+                                <button class= "overlay_button">More...</button>
+                            </div>
+                        </div>
+                        <div class="box" id="romance6">
+                            <img src="JustStreamIt/images/test.jpg" alt="movie cover" height="380" width="380">
+                            <div class= "overlay">
+                                <p>Movie 6</p>
+                                <button class= "overlay_button">► Play</button>
+                                <button class= "overlay_button">More...</button>
+                            </div>
+                        </div>
+                        <div class="box" id="romance7">
+                            <img src="JustStreamIt/images/test.jpg" alt="movie cover" height="380" width="380">
+                            <div class= "overlay">
+                                <p>Movie 7</p>
+                                <button class= "overlay_button">► Play</button>
+                                <button class= "overlay_button">More...</button>
+                            </div>
+                        </div> 
+                    </div>
+                    <div class="controls">
+                        <button class="btn left" id="romance-left">❰</button>
+                        <button class="btn right show" id="romance-right">❱</button>
+                    </div>
+                </div>
+            </div>
+        </section>   
 
         <!-- Modal -->
         <div id="modal" class="modal">
             <div class="modal-content">
-                <span aria-label="close modal" class="close">&times;</span>
-                <div class="modal-cover-image">
-                    <img alt="modal-cover" id="modal-cover" src="JustStreamIt/images/test.jpg">
+                <span class="close">&times;</span>
+                <div class="modal_cover_image">
+                    <img alt="movie cover" height="100" width="100" id="modal-cover" src="JustStreamIt/images/test.jpg">
                 </div>
-                <div class="modal-movie-info">
-                    <header class="modal-header">
+                <div class="modal_movie_info">
+                    <header class="modal_header">
                         <h3 class="title" id="modal-title">""</h3>
-                        <button class="modal-button"><i class="bi bi-play-fill">Play</i></button>
+                        <button class="modal-button">► Play</button>
                     </header>
                     <div class="metadata">
                         <p id="modal-year">""</p> •  <p id="modal-rating">""</p>  •  <p id="modal-duration"></p><br>
                         <p class="genres" id="modal-genres">""</p><br>
-                        <strong>Imdb: </strong>
+                        <strong>IMDb: </strong>
                         <p id="modal-imdb">""</p><br><br>
                     </div>
-                    <div>
-                        <strong>Directed by: </strong>
-                        <p id="modal-directors">""</p><br>
-                        <strong>Starring: </strong>
-                        <p id="modal-cast">""</p><br>
-                        <strong>Countries: </strong>
-                        <p id="modal-country">""</p><br>
-                        <strong>Box office: </strong>
-                        <p id="modal-box-office">""</p><br>
-                        <strong>Movie summary: </strong>
-                        <p class="movie" id="modal-desc">""</p>
-                    </div>
+                    <strong>Directed by: </strong>
+                    <p id="modal-directors">""</p><br>
+                    <strong>Starring: </strong>
+                    <p id="modal-cast">""</p><br>
+                    <strong>Countries: </strong>
+                    <p id="modal-country">""</p><br>
+                    <strong>Box office: </strong>
+                    <p id="modal-box-office">""</p><br>
+                    <strong>Movie summary: </strong>
+                    <p class="plot" id="modal-desc">""</p>
                 </div>
             </div>
         </div>
-        
+
         <!-- Footer -->
         <footer>
             <p>© 2023 JustStreamIt - all rights reserved.</p>
         </footer>
 
-        <!-- JavaScript -->
+        <!-- JavaScript-->
         <script src="JustStreamIt/script.js"></script>
+
     </body>
 </html>
