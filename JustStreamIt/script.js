@@ -8,10 +8,13 @@ function moveCarrouselLeft(category) {
   let carrouselContent = document.querySelector("#" + category + "-movies");
   let carrouselLeftBtn = document.querySelector("#" + category + "-left");
   let carrouselRightBtn = document.querySelector("#" + category + "-right");
+  let carrouselBtn = document.querySelector(".btn." + category);
     
-  carrouselContent.style.left = "-680px";
-  carrouselRightBtn.classList.remove("show");
-  carrouselLeftBtn.classList.add("show");
+  carrouselContent.style.left = "0px";
+  carrouselRightBtn.classList.add("show");
+  carrouselLeftBtn.classList.remove("show");
+  carrouselBtn.style.left = "0"; // Move the button to the left
+     
 }
 
 function moveCarrouselRight(category) {
@@ -19,10 +22,12 @@ function moveCarrouselRight(category) {
   let carrouselContent = document.querySelector("#" + category + "-movies");
   let carrouselLeftBtn = document.querySelector("#" + category + "-left");
   let carrouselRightBtn = document.querySelector("#" + category + "-right");
+  let carrouselBtn = document.querySelector(".btn." + category);
 
-  carrouselContent.style.left = "0px";
-  carrouselRightBtn.classList.add("show");
-  carrouselLeftBtn.classList.remove("show");
+  carrouselContent.style.left = "-680px";
+  carrouselRightBtn.classList.remove("show");
+  carrouselLeftBtn.classList.add("show");
+  carrouselBtn.style.left = "680"; // Move the button to the right
 }
 
 
@@ -100,20 +105,20 @@ function openModal(category, num) {
   let modal = document.getElementById("modal");
   let span = document.getElementsByClassName("close")[0];
 
-  let modalId = document.getElementById(category + num.toString()).getElementsByTagName("img")[0].id;
+  let modalId = document.querySelector(`#${category}${num}`).getElementsByTagName("img")[0].id;
 
   fetchModalData(modalId)
 
   modal.style.display = "block";
 
-  span.addEventListener = function() {
+  span.addEventListener('click', function() {
     modal.style.display = "none";
-  }
+  });
 
-  window.addEventListener = function(event) {
+  window.addEventListener =('click', function(event) {
     if (event.target == modal)
       modal.style.display = "none";
-  }
+  });
 }
 
 function fetchModalData(id) {
@@ -155,6 +160,42 @@ function fetchModalData(id) {
 	})
 }
 
+// Event listeners for carrousel buttons
+
+document.querySelector("#best-left").addEventListener('click', function() {
+  moveCarrouselLeft('');
+});
+
+document.querySelector("#best-right").addEventListener('click', function() {
+  moveCarrouselRight('');
+});
+
+document.querySelector("#action-left").addEventListener('click', function() {
+  moveCarrouselLeft('action');
+});
+
+document.querySelector("#action-right").addEventListener('click', function() {
+  moveCarrouselRight('action');
+});
+
+document.querySelector("#history-left").addEventListener('click', function() {
+  moveCarrouselLeft('history');
+});
+
+document.querySelector("#history-right").addEventListener('click', function() {
+  moveCarrouselRight('history');
+});
+
+document.querySelector("#fantasy-left").addEventListener('click', function() {
+  moveCarrouselLeft('fantasy');
+});
+
+document.querySelector("#fantasy-right").addEventListener('click', function() {
+  moveCarrouselRight('fantasy');
+});
+
+
+// Initial fetch calls
 
 fetchCategories('')
 fetchCategories('horror')
