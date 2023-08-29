@@ -399,6 +399,6 @@ function setModalsPopup() {
 
 fetchCategories("");
 fetchCategories("action");
-fetchCategories("sci-fi");
+fetchCategories("adventure");
 fetchCategories("fantasy");
 fetchBestMovie();
