@@ -1,6 +1,6 @@
 # OpenClassrooms-P6 Développez une interface utilisateur pour une application web Python
 ---
-![logo](justStream/images/logo_dark.png)
+![logo](justStreamIt/images/logo_dark.png)
 
 ## Objectif
 Ce programme est un projet proposé par [OpenClassRooms](https://openclassrooms.com/fr/) dans le cadre de la formation :
