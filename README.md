@@ -1,6 +1,6 @@
 # OpenClassrooms-P6 Développez une interface utilisateur pour une application web Python
 ---
-![logo](Images/logo.png)
+![logo](justStream/images/logo_dark.png)
 
 ## Objectif
 Ce programme est un projet proposé par [OpenClassRooms](https://openclassrooms.com/fr/) dans le cadre de la formation :
@@ -8,8 +8,8 @@ Développeur d'applications Python. Il s'agit de développer une application Web
 
 * Le site web présente le film le mieux noté
 * une liste des 7 meilleurs films 
-* une liste des 7 meilleurs films de la catégorie Action
-* une liste des 7 meilleurs films de la catégorie Aventure
+* une liste des 7 meilleurs films de la catégorie Sci-fi
+* une liste des 7 meilleurs films de la catégorie Historique
 * une liste des 7 meilleurs films de la catégorie Romantique
 
 Un carroussel donne la possibilité de naviguer dans chacune des listes
