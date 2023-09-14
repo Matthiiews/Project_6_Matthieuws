@@ -1,7 +1,8 @@
-//Data source API url
+// Source de données URL API
+
 const mainUrl = "http://localhost:8000/api/v1/titles/";
 
-// Fetch data
+// Récupérer les données
 
 function fetchBestMovie() {
   let bestTitle = document.getElementById("top-title");
@@ -50,7 +51,7 @@ function fetchCategories(category) {
 
           let dataAll = dataPage1.concat(dataPage2);
 
-          if (category == "") dataAll.shift(); // for best-rated category, skip first movie
+          if (category == "") dataAll.shift(); // Pour la catégorie des meilleurs films, sauter le premier film
 
           for (i = 0; i < 7; i++) {
             let movieCover = dataAll[i]["image_url"];
@@ -100,11 +101,11 @@ function fetchModalData(id) {
       if (typeof data["rated"] === "string" || data["rated"] instanceof String)
         document.getElementById("modal-rating").innerHTML = data["rated"];
       else
-        document.getElementById("modal-rating").innerHTML = data["rated"] + "+"; // add "+" if age rating is a number
+        document.getElementById("modal-rating").innerHTML = data["rated"] + "+"; // Ajouter "+" si l'âge est un nombre
 
       let modalBoxOffice = document.getElementById("modal-box-office");
       if (data["worldwide_gross_income"] == null)
-        modalBoxOffice.innerHTML = "N/A"; // placeholder for unspecified box-office
+        modalBoxOffice.innerHTML = "N/A"; // espace réservé pour le box-office non spécifié
       else
         modalBoxOffice.innerHTML =
           data["worldwide_gross_income"] + " " + data["budget_currency"];
@@ -113,7 +114,7 @@ function fetchModalData(id) {
       if (regExp.test(data["long_description"]))
         document.getElementById("modal-desc").innerHTML =
           data["long_description"];
-      else document.getElementById("modal-desc").innerHTML = "N/A"; // placeholder for missing description
+      else document.getElementById("modal-desc").innerHTML = "N/A"; // Remplaçant de la description manquante
      
     });
 
@@ -302,7 +303,7 @@ function setCarouselsSildes() {
   }
 }
 
-// Modal Popup displayer with clicked vidéo content
+// Afficheur modal popup avec contenu vidéo cliqué
 
 function setModalsPopup() {
   // récupération de la fenetre modal par son id
@@ -349,7 +350,7 @@ function setModalsPopup() {
   }
 }
 
-// Initial fetch calls
+// Appels initiaux de recherche
 
 fetchCategories("");
 fetchCategories("sci-fi");

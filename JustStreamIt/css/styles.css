@@ -109,7 +109,7 @@ button:hover {
   justify-content: center;
   background: linear-gradient(#222222, #111111);
 
-  /*nouveau code pour centrer titre des catégories*/
+  /* code for centring category titles */
   text-align: center;
 }
 
@@ -164,7 +164,7 @@ button:hover {
   top: 40px;
   bottom: 0;
 
-  /* nouveau code pour repositionner les boutons de défillement des carousels*/
+  /* code for repositioning carousel scroll buttons */
   max-height: 200px;
   margin: auto;
 }
