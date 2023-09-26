@@ -149,7 +149,7 @@ function hasClass(listOfClasses, searchedClass) {
   return searchResult;
 }
 
-// Carrousel controls
+// Carrousel controls.
 
 function setCarouselsSildes() {
   // Récupération de tous les champs carrousel disposant de la classe carousel-container
