@@ -2,7 +2,7 @@
 
 const mainUrl = "http://localhost:8000/api/v1/titles/";
 
-// Récupérer les données // Fetch data
+// Récupérer les données
 
 function fetchBestMovie() {
   let bestTitle = document.getElementById("top-title");
