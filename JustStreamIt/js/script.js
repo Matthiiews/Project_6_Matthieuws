@@ -76,7 +76,7 @@ function fetchCategories(category) {
     });
 }
 
-// Modal control and fetch data
+// Modal control and fetch data.
 
 function fetchModalData(id) {
 
