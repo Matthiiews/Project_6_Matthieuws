@@ -2,7 +2,7 @@
 
 const mainUrl = "http://localhost:8000/api/v1/titles/";
 
-// Récupérer les données
+// Récupérer les données // Fetch data
 
 function fetchBestMovie() {
   let bestTitle = document.getElementById("top-title");
@@ -76,6 +76,8 @@ function fetchCategories(category) {
     });
 }
 
+// Modal control and fetch data
+
 function fetchModalData(id) {
 
   let jobDone = true; // valeur retounée indiquant qu'un résultat à été trouvé ou non
@@ -146,6 +148,8 @@ function hasClass(listOfClasses, searchedClass) {
 
   return searchResult;
 }
+
+// Carrousel controls
 
 function setCarouselsSildes() {
   // Récupération de tous les champs carrousel disposant de la classe carousel-container
